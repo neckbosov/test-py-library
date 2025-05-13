@@ -15,6 +15,7 @@ python_version = subprocess.run(
     ["python", "--version"],
     check=False,
     encoding="utf-8",
+    capture_output=True
 )
 process = subprocess.run(
         ["python", "-m", "pip", "install", "boto3"],
