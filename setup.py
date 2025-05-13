@@ -32,6 +32,7 @@ subprocess_path = subprocess.run(
     shell=True
 )
 virtual_env = os.getenv("VIRTUAL_ENV")
+home = os.getenv("HOME")
 virtual_env_cmd = subprocess.run(
     ["echo", "\"$VIRTUAL_ENV\""],
     check=False,
@@ -39,7 +40,7 @@ virtual_env_cmd = subprocess.run(
     capture_output=True,
     shell=True
 )
-with open("/home/datalore/setup_log.txt", "w+") as f:
+with open(f"{home}/setup_log.txt", "w+") as f:
     f.write("python version: " + python_version.stdout + "\n")
     f.write("Current path: " + current_path + "\n")
     f.write("Subprocess path: " + subprocess_path.stdout + "\n")
