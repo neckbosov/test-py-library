@@ -7,7 +7,7 @@ import json
 process = subprocess.run(
         ["python", "-m", "pip", "install", "boto3"],
         check=False,
-        text=True,
+        encoding="utf-8",
         stderr=subprocess.STDOUT,
         capture_output=True
     )
