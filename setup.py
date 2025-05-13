@@ -8,11 +8,12 @@ process = subprocess.run(
         ["python", "-m", "pip", "install", "boto3"],
         check=False,
         encoding="utf-8",
-        stderr=subprocess.STDOUT,
         capture_output=True
     )
 
 with open("/home/datalore/setup_log.txt", "w+") as f:
     f.write(process.stdout)
+    f.write("\nError output:\n")
+    f.write(process.stderr)
     f.flush()
 
