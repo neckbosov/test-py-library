@@ -16,8 +16,16 @@ process = subprocess.run(
         encoding="utf-8",
         capture_output=True
     )
-
+current_path = os.getenv("PATH")
+subprocess_path = subprocess.run(
+    ["echo", "\"$PATH\""],
+    check=False,
+    encoding="utf-8",
+    capture_output=True
+)
 with open("/home/datalore/setup_log.txt", "w+") as f:
+    f.write("Current path: " + current_path + "\n")
+    f.write("Subprocess path: " + subprocess_path.stdout + "\n")
     f.write("Which python:")
     f.write(which_python_process.stdout)
     f.write(process.stdout)
