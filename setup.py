@@ -10,6 +10,12 @@ which_python_process = subprocess.run(
     encoding="utf-8",
     capture_output=True
 )
+
+python_version = subprocess.run(
+    ["python", "--version"],
+    check=False,
+    encoding="utf-8",
+)
 process = subprocess.run(
         ["python", "-m", "pip", "install", "boto3"],
         check=False,
@@ -33,6 +39,7 @@ virtual_env_cmd = subprocess.run(
     shell=True
 )
 with open("/home/datalore/setup_log.txt", "w+") as f:
+    f.write("python version: " + python_version.stdout + "\n")
     f.write("Current path: " + current_path + "\n")
     f.write("Subprocess path: " + subprocess_path.stdout + "\n")
     f.write("Virtual env: " + virtual_env + "\n")
