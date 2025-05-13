@@ -14,5 +14,6 @@ process = subprocess.run(
 
 with open("/home/datalore/setup_log.txt", "w+") as f:
     f.write(process.stdout)
+    f.flush()
 
 process.check_returncode()
