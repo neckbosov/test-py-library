@@ -21,7 +21,8 @@ subprocess_path = subprocess.run(
     ["echo", "\"$PATH\""],
     check=False,
     encoding="utf-8",
-    capture_output=True
+    capture_output=True,
+    shell=True
 )
 with open("/home/datalore/setup_log.txt", "w+") as f:
     f.write("Current path: " + current_path + "\n")
